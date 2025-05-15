@@ -2,11 +2,10 @@ import chokidar from "npm:chokidar@3.5.3";
 
 import { build_markdown } from "./markdown.ts";
 import { error_to_html, wrap_body_in_html } from "./html.ts";
-import { faviconTransformer } from "./transformers/favicon.ts";
 import { markdownTransformer } from "./transformers/markdown.ts";
 import { imageTransformer } from "./transformers/image.ts";
 import { directoryTransformer } from "./transformers/directory.ts";
-import { styleTransformer } from "./transformers/css.ts";
+import { staticTransformer } from "./transformers/static.ts";
 
 const [filename] = Deno.args;
 
@@ -45,11 +44,10 @@ function to_response({ type, data, error }: Content): Response {
 }
 
 const transformers = [
-  faviconTransformer,
+  staticTransformer,
   markdownTransformer,
   imageTransformer,
   directoryTransformer,
-  styleTransformer,
 ];
 
 async function serve_file(uri: string) {

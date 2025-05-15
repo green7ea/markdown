@@ -14,19 +14,19 @@ export function error_to_html<T>(error: T) {
 
 export function wrap_body_in_html(body: string) {
   return `<!DOCTYPE html>
-            <html>
+            <html lang="en">
             <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width,initial-scale=1" />
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
-            <link rel="stylesheet" href="/style.css">
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width,initial-scale=1" />
+              <link rel="stylesheet" href="/static/katex.min.css">
+              <link rel="stylesheet" href="/static/tufte.css">
             </head>
             <body>
             <article id="article">
             ${body}
             </article>
             <script type="module">
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            import mermaid from '/static/mermaid.esm.min.mjs';
 
             function update_content(new_content) {
                 document.getElementById('article').innerHTML = new_content;
