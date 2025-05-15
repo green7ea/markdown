@@ -29,7 +29,6 @@ export async function build_markdown(markdown: string, file: string) {
     .use(katex)
     .use(slug)
     .use(links)
-    // Why is the typing on 'toc' off?
     .use(toc)
     .use(raw)
     .use(stringify)

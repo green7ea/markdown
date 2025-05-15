@@ -1,7 +1,3 @@
-import { default_css } from "./style.ts";
-
-const css = default_css;
-
 export function error_to_html<T>(error: T) {
   return `
         <div>
